@@ -1,4 +1,4 @@
-package ch05;
+package ch06;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,14 +10,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ThirdServlet
+ * Servlet implementation class RequestMethod
  */
-@WebServlet("/ch05/third")
-public class ThirdServlet extends HttpServlet {
-	
+@WebServlet("/ch06/reqMethod")
+public class RequestMethod extends HttpServlet {
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		String contextPath = request.getContextPath();		// /jw
+		String method = request.getMethod();				// GET
+		String requestUri = request.getRequestURI();		// /jw/ch06/reqMethod
+		String getServerName = request.getServerName();		// localhost
+		String servletPath = request.getServletPath();		// /ch06/reqMethod
+		String pathInfo = request.getPathInfo();			// null
+		
+		String data = "contextPath: " + contextPath + "\n";
+		data += " method: " +  method + "\n";
+		data += "requestUri: " + requestUri + "\n";
+		data += "serverName: " + getServerName + "\n";
+		data += "servletPath: " + servletPath + "\n";
+		data += "pathInfo: " + pathInfo + "\n";
+		System.out.println(data); 
 		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -30,16 +42,21 @@ public class ThirdServlet extends HttpServlet {
 		out.print("<title>Hello World</title>");
 		out.print("</head>");
 		out.print("<body>");
-		out.print("<h1>안녕하세요?</h1>");
-		out.print("<h1>Hello World!</h1>");
+		out.print("<h1>HttpServletRequest의 다양한 메소드</h1>");
+		out.print("<hr>");
+		// out.print(data);
+		String[] ulList = data.split("\n");
+		out.print("<ul>");
+		for (String li : ulList)
+			out.print("<li>" + li + "</li>");
+		out.print("</ul>");
+		
 		out.print("</body>");
 		out.print("</html>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
 }
-//response ~ - 요청한 부분에 대해 넘겨주기 위해 존재
