@@ -1,0 +1,9 @@
+2022-12-09 Customer Servlet + DB 체제 관련 설계도,,,,,
+Routing,용도,method,입력,다음 행선지,파일이름
+/jw/ch07/customerList,리스트 확인,GET,,,java/ch07/customerServlet.java
+/jw/ch07/registerCustomer.html,회원가입 폼,-,-,,registerCustomer.html
+/jw/ch07/registerCustomer,회원가입,POST,"uid, uname",/jw/ch07/customerList,java/ch07/CustomerInsert.java
+/jw/ch07/deleteCustomer,회원 삭제,GET,uid,/jw/ch07/customerList,java/ch07/CustomerDelete.java
+/jw/ch07/UpdateCustomer,회원 정보 수정,GET,uid,/jw/ch07/UpdateCustomer POST,java/ch07/CustomerUpdate.java
+/jw/ch07/UpdateCustomer,회원 정보 수정,POST,"uid, uname",/jw/ch07/customerList,java/ch07/CustomerUpdate.java
+,,,,,
