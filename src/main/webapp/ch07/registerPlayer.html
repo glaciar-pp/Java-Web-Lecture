@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신규 선수 가입</title>
+    <style>
+        td { text-align: center; padding: 3px;}
+    </style>
+</head>
+<body style="margin: 40px;"> 
+    <h1>신규 선수 가입</h1>
+    <hr>
+    <form action="/jw/ch07/registerPlayer" method="post">
+        <table>
+            <tr>
+                <td>선수 Back Number 입력</td>
+                <td><input type="number" name="backNo"></td>
+            </tr>
+            <tr>
+                <td>선수 성명</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>선수 포지션</td>
+                <td><input type="text" name="position"></td>
+            </tr>
+            <tr>
+                <td>선수 생년월일</td>
+                <td><input type="date" name="birthday"></td>
+            </tr>
+            <tr>
+                <td>선수 키</td>
+                <td><input type="number" name="height"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="가입"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
