@@ -7,10 +7,11 @@
     <title>선수 정보 수정</title>
     <style>
         td { text-align: center; padding: 3px;}
+        #LGC1 { background-color: rgb(196, 4, 82); color: white;}
     </style>
 </head>
-<body style="margin: 40px;">
-    <h1>선수 정보 수정</h1>
+<body style="margin: 40px; margin-left: auto; margin-right: auto;">
+    <h1 id="LGC1">선수 정보 수정</h1>
     <hr>
     <form action="/jw/ch07/updatePlayerInfo" method="post">
         <input type="hidden" name="backNo" value="">
@@ -29,7 +30,7 @@
             </tr>
             <tr>
                 <td>선수 생년월일</td>
-                <td><input type="text" name="birthday" value=""></td>
+                <td><input type="date" name="birthday" value=""></td>
             </tr>
             <tr>
                 <td>선수 키</td>

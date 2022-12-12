@@ -41,7 +41,7 @@ public class CustomerDAO {
 		}
 	}
 	
-	public void upateCustomer(Customer c) {
+	public void updateCustomer(Customer c) {
 		Connection conn = getConnection();
 		String sql = "UPDATE customer SET name=? WHERE uid=?;";
 		try {

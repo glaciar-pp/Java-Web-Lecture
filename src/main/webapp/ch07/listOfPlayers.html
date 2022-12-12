@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선수 명단</title>
+    <style>
+       td { text-align: center; padding: 5px;}
+	#LGC1 { background-color: rgb(196, 4, 82); color: white;}
+    </style>
+</head>
+<body style="margin: 40px;">
+	<h1 id="LGC1">선수 명단⚾</h1>
+	<hr>
+	<table border="1">
+		<tr id="LGC1">
+			<th>Back Number</th><th>성명</th><th>포지션</th><th>생년월일</th><th>키(cm)</th><th>기능</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><a href="/jw/ch07/updatePlayerInfo?backNo=">수정</a>
+			<a href="/jw/ch07/releasePlayer?backNo=">방출</a></td>
+			<!-- c.getUid() + -> 여기서 for loop 돌면서 적합한 아이디가 들어가게 만들어줌. 하나로 고정해서 적어두는건 NO! -->
+		</tr>
+	</table>
+	<br>
+	<a href="/jw/ch07/registerPlayer.html">신규 선수 가입</a>
+</body>
+</html>

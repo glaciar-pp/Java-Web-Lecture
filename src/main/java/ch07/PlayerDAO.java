@@ -1,16 +1,12 @@
 package ch07;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -107,7 +103,7 @@ public class PlayerDAO {
 	}
 
 	//선수정보 수정
-	public void upatePlayer(Player p) {
+	public void updatePlayer(Player p) {
 		Connection conn = getConnection();
 		String sql = "UPDATE baseballteam SET name=?, position=?,  birthday=?, height=?, isDeleted=? WHERE backNo=?;";
 		try {
