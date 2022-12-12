@@ -31,14 +31,15 @@ public class PlayerServlet extends HttpServlet {
 		out.print("	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
 		out.print("	<title>선수 명단</title>");
 		out.print("<style>");
-		out.print("td { text-align: center; padding: 3px;}");
+		out.print("td { text-align: center; padding: 5px;}");
+		out.print("#LGC1 { background-color: rgb(196, 4, 82); color: white;}");
 		out.print("</style>");
 		out.print("</head>");
 		out.print("<body style=\"margin: 40px;\">");
-		out.print("	<h1>선수 명단</h1>");
+		out.print("	<h1 id=\"LGC1\">선수 명단⚾</h1>");
 		out.print("	<hr>");
 		out.print("<table border=\"1\">");
-		out.print("	    <tr>");
+		out.print("	    <tr id=\"LGC1\">");
 		out.print("	      <th>Back Number</th><th>성명</th><th>포지션</th><th>생년월일</th><th>키(cm)</th><th>기능</th>");
 		out.print("	    </tr>"); 
 		

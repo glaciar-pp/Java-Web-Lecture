@@ -34,10 +34,11 @@ public class PlayerUpdate extends HttpServlet {
 				+ "    <title>선수 정보 수정</title>"
 				+ "    <style>"
 				+ "        td { text-align: center; padding: 3px;}"
+				+ "		   #LGC1 { background-color: rgb(196, 4, 82); color: white;}"
 				+ "    </style>"
 				+ "</head>"
 				+ "<body style=\"margin: 40px;\">"
-				+ "    <h1>선수 정보 수정</h1>"
+				+ "    <h1 id=\"LGC1\">선수 정보 수정</h1>"
 				+ "    <hr>"
 				+ "    <form action=\"/jw/ch07/updatePlayerInfo\" method=\"post\">"
 				+ "        <input type=\"hidden\" name=\"backNo\" value=\"" + p.getBackNo() +"\">"
@@ -56,7 +57,7 @@ public class PlayerUpdate extends HttpServlet {
 				+ "            </tr>"
 				+ "            <tr>"
 				+ "                <td>선수 생년월일</td>"
-				+ "                <td><input type=\"text\" name=\"birthday\" value=\"" + p.getBirthday() + "\"></td>"
+				+ "                <td><input type=\"date\" name=\"birthday\" value=\"" + p.getBirthday() + "\"></td>"
 				+ "            </tr>"
 				+ "            <tr>"
 				+ "                <td>선수 키</td>"
@@ -82,7 +83,7 @@ public class PlayerUpdate extends HttpServlet {
 		
 		Player p = new Player(backNo, name, position, birthday, height);
 		PlayerDAO dao = new PlayerDAO();
-		dao.upatePlayer(p);	
+		dao.updatePlayer(p);	
 		
 		response.sendRedirect("/jw/ch07/playerList");
 	}

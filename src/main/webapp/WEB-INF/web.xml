@@ -9,6 +9,12 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  <context-param>
+  	<param-name>menu</param-name>
+  	<param-value>짬뽕 짜장면 탕수육</param-value>
+  </context-param>
+  
  <!-- <servlet>
 	  <servlet-name>first</servlet-name>
 	  <servlet-class>ch05.FirstServlet</servlet-class>
