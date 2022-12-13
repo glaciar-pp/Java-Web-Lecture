@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up test</title>
+    <script>
+        window.onload = pageload;
+        function pageload() {
+            let notShowPop =getCookieValue();
+            if (notShowPop != "true") {
+            window.open("popup.html", "pop",
+            "width=400, height=500, history=no, resizable=no, status=no, scrollbars=yes, menubar=no");
+            }
+        }
+        function getCookieValue() {
+            let result = "false";
+            if (document.cookie != "") {
+                cookie = document.cookie.split(";");
+                for (let i = 0; i < cookie.length; i++) {
+                    let element = cookie[i].split("=");
+                    let name = element[0].trim();
+                    if (name == "notShowPop")
+                        result = elements[1];
+                        console.log(name, ':', elements[1]);
+                }
+            }
+            return result;
+        }
+        function deleteCookie() {
+            document.cookie = "notShowPop=" +"false"+ ";path=/; expires=-1";
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="button" value="쿠키삭제" onclick="deleteCookie()">
+    </form>
+</body>
+</html>
