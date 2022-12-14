@@ -15,6 +15,19 @@
   	<param-value>짬뽕 짜장면 탕수육</param-value>
   </context-param>
   
+  
+  <!-- 해당 파일에 전체적으로 적용할 필터 설정 가능함.
+  클래스 작성시 패키지 포함해서 작성해야함
+  별로 쓸만한 기능은 아니라서 주석 처리. -->
+	<!-- <filter>
+  	<filter-name>HangulEncoding</filter-name>
+  	<filter-class>ch10.EncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>HangulEncoding</filter-name>
+  	<url-pattern>/ch10/*</url-pattern>
+  </filter-mapping> -->
+  
  <!-- <servlet>
 	  <servlet-name>first</servlet-name>
 	  <servlet-class>ch05.FirstServlet</servlet-class>
