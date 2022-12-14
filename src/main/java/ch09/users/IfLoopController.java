@@ -18,13 +18,13 @@ import org.mindrot.jbcrypt.BCrypt;
  * Servlet implementation class Controller
  */
 
-// @WebServlet(
-//		 		name = "UserController", \
-//	 			urlPatterns = { "/ch09/users/list", "/ch09/users/login", "/ch09/users/logout", 
-//	 						"/ch09/users/register", "/ch09/users/update", "/ch09/users/delete" }) 
-// 							UserServiceContoller사용을 위한 주석처리
- 
-public class Controller extends HttpServlet {
+//@WebServlet(
+//	name = "UserController", \
+//	urlPatterns = { "/ch09/users/list", "/ch09/users/login", "/ch09/users/logout", 
+//				"/ch09/users/register", "/ch09/users/update", "/ch09/users/delete" }) 
+//				UserServiceContoller사용을 위한 주석처리
+
+public class IfLoopController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
@@ -66,8 +66,7 @@ public class Controller extends HttpServlet {
 		
 	}
 	//어지러운  if문을 switch(자바에서 사용 가능한 방식임!)문으로 정리 가능함...다중 if문 쓸땐 Identation 맞추는게 정말 중요함
-	//서블릿은 response.sendRedirect~ 아니면 forward로 끝나는게 정상. 그 뒤에 break 같은 어차피 끝나는 부분 아닌 이상 오류의 원인이 됨
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String requestUri = request.getRequestURI();
@@ -112,7 +111,6 @@ public class Controller extends HttpServlet {
 		} else if (requestUri.contains("register")) {
 			String uid = request.getParameter("uid");
 			String pwd = request.getParameter("pwd");
-			String pwd2 = request.getParameter("pwd2"); //패스워드 검증용
 			String uname = request.getParameter("uname");
 			String email = request.getParameter("email");
 			
@@ -134,11 +132,11 @@ public class Controller extends HttpServlet {
 		//회원 정보 수정
 		} else if(requestUri.contains("update")) {
 			String uid = request.getParameter("uid");
-			//String pwd = request.getParameter("pwd"); 수정에도 pwd 넣으면 로직이 복잡해져서 생략.!
+			String pwd = request.getParameter("pwd");
 			String uname = request.getParameter("uname");
 			String email = request.getParameter("email");
 						
-			User u = new User(uid, uname, email);
+			User u = new User(uid, pwd, uname, email);
 			dao.updateUser(u);
 			response.sendRedirect("/jw/ch09/users/list");
 			}else {

@@ -16,13 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 public class UpdateViewer2 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		User u = (User)request.getAttribute("user");
-		//윗 두줄은 데이터베이스에서 가져오는게 아니라 controller통해 불러준 데이터를 쓰겠다는 뜻
-		
-		response.setCharacterEncoding("utf-8");		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
+		User u = (User)request.getAttribute("user");
+		
 		String data = "<!DOCTYPE html>"
 				+ "<html lang=\"ko\">"
 				+ "<head>"
@@ -45,10 +42,6 @@ public class UpdateViewer2 extends HttpServlet {
 		data += "<td><input type=\"text\" name=\"uid\"  value=\"" + u.getUid() + "\" disabled></td>";
 		data += "            </tr>"
 				+ "            <tr>"
-				+ "                <td>사용자 PWD: </td>";
-		data +=	"<td><input type=\"password\" name=\"pwd\"  value=\"" + u.getPwd() + "\"></td>";
-		data +=	"            </tr>"
-				+ "            <tr>"
 				+ "                <td>사용자 성명: </td>";
 		data +=	"<td><input type=\"text\" name=\"uname\"  value=\"" + u.getUname() + "\"></td>";
 		data +=	"            </tr>"
@@ -56,12 +49,9 @@ public class UpdateViewer2 extends HttpServlet {
 				+ "                <td>사용자 email 입력</td>";
 		data += "<td><input type=\"email\" name=\"email\" value=\"" + u.getEmail() + "\"></td>";
 		data += "            </tr>"
-				+ "            <tr>"
-				+ "                <td>사용자 등록일자</td>";
-		data += "<td><input type=\"text\" name=\"regDate\" value=\"" + u.getRegDate() + "\" disabled></td>";
-		data += "            </tr>"
 				+ "             <tr>"
-				+ "                <td colspan=\"2\"><input type=\"submit\" value=\"수정\"></td>"
+				+ "                <td colspan=\"2\"><input type=\"submit\" value=\"수정\">"
+				+ "				   <input type=\"reset\" value=\"취소\"></td>"
 				+ "            </tr>"				
 				+ "        </table>"
 				+ "    </form>"

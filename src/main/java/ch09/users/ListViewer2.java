@@ -60,15 +60,16 @@ public class ListViewer2 extends HttpServlet {
 			
 			//본인만이 수정 권한이 있음
 			if (sessionUid == null || !sessionUid.equals(u.getUid())) //u.getUid()와 session에 들어있는 정보가 같은가?를 보는 것
-				data += "<button onclick=\"location.href='/jw/ch09/users/update?uid='\" disabled>수정</button>";
+				data += "<button disabled>수정</button>";
 			else
-				data += "<button onclick=\"location.href='/jw/ch09/users/update?uid='\"" + sessionUid + "\">수정</button>";
+				data += "<button onclick=\"location.href='/jw/ch09/users/update?uid=" + u.getUid() + "'\">수정</button>";
+				//나중에 JSP + EL(Expression Language) 적용하면 + u.getUid() + 부분을 ${u.uid}내용으로 더 편하게 쓸수 있지만 위 내용을 작성할 줄 알아야함!!원리를 알아야 적용하니까
 			
 			// 관리자(admin) 만이 삭제 권한이 있음
 			if (sessionUid == null || !sessionUid.equals("admin"))
-				data += "<button onclick=\"location.href='/jw/ch09/users/delete?uid='\" disabled>삭제</button>";			
+				data += "<button disabled>삭제</button>";			
 			else
-				data += "<button onclick=\"location.href='/jw/ch09/users/delete?uid='\">삭제</button>";
+				data += "<button onclick=\"location.href='/jw/ch09/users/delete?uid=" + u.getUid() + "'\">삭제</button>";
 				/* 관리자 삭제권한 부분 || 를 통해 단축함
 				 * if(sessionUid.equals("admin"))
 				 * "<button onclick=\"location.href='/jw/ch09/users/delete?uid='\">삭제</button>";
@@ -82,7 +83,25 @@ public class ListViewer2 extends HttpServlet {
 				 * 
 				 * 신기하게도, 이런 로직에 대한 부분은 홈페이지를 열어 페이지 소스 보기를 하면 나오지 않음!
 				 * 로직에 따라 실행된 부분이 나오기 때문! 우리가 사용하는 많은 페이지가 이렇게 속속들이 로직이 숨어있음!!
-				 */			
+				 */
+			
+				/* 해당 방식에서 더 개선됨! 
+				 * 
+				 * 본인만이 수정 권한이 있음
+				 * if (sessionUid == null || !sessionUid.equals(u.getUid())) //u.getUid()와
+				 * session에 들어있는 정보가 같은가?를 보는 것 data +=
+				 * "<button onclick=\"location.href='/jw/ch09/users/update?uid='\" disabled>수정</button>"
+				 * ; else data +=
+				 * "<button onclick=\"location.href='/jw/ch09/users/update?uid='\">수정</button>";
+				*
+				 * // 관리자(admin) 만이 삭제 권한이 있음 if (sessionUid == null ||
+				 * !sessionUid.equals("admin")) data +=
+				 * "<button onclick=\"location.href='/jw/ch09/users/delete?uid='\" disabled>삭제</button>"
+				 * ; else data +=
+				 * "<button onclick=\"location.href='/jw/ch09/users/delete?uid='\">삭제</button>";
+				 *
+				 */
+			
 			data += "</td>";
 			data += "</tr>";
 		}

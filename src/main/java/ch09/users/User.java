@@ -11,6 +11,14 @@ public class User {
 	
 	User() {}
 	
+	
+	User(String uid, String uname, String email) {
+		super();
+		this.uid = uid;
+		this.uname = uname;
+		this.email = email;
+	}
+	
 	User(String uid, String pwd, String uname, String email) {
 		super();
 		this.uid = uid;
@@ -67,5 +75,8 @@ public class User {
 	public void setRegDate(LocalDate regDate) {
 		this.regDate = regDate;
 	}
+
+
+
 
 }
